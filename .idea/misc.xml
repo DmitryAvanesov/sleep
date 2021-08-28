@@ -3,9 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/cover_night_island.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/test.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_1.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_2.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_3.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_4.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_5.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_6.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_7.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_8.xml" value="0.2703125" />
         <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/layout/activity_list.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/layout/fragment_list.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/layout/fragment_list.xml" value="0.33692722371967654" />
       </map>
     </option>
   </component>

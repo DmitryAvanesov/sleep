@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">sleep</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="list_info">%1$d MIN &#8226;</string>
 </resources>

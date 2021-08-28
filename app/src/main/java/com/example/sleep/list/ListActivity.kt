@@ -2,6 +2,8 @@ package com.example.sleep.list
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.example.sleep.R
