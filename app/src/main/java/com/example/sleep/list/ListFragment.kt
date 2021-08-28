@@ -1,12 +1,13 @@
 package com.example.sleep.list
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.sleep.R
@@ -44,19 +45,30 @@ class ListFragment : Fragment(R.layout.fragment_list) {
                         tableLayout.addView(tableRow)
                     }
 
-                    val linearLayout = LinearLayout(requireContext())
-                    linearLayout.setHorizontalGravity(if (leftCard) android.view.Gravity.START else android.view.Gravity.END)
-                    tableRow.addView(linearLayout)
+                    val rowLinearLayout = LinearLayout(requireContext())
+                    rowLinearLayout.setHorizontalGravity(if (leftCard) android.view.Gravity.START else android.view.Gravity.END)
+                    tableRow.addView(rowLinearLayout)
+
+                    val itemLinearLayout = LinearLayout(requireContext())
+                    val itemLinearLayoutLayoutParams = LinearLayout.LayoutParams(
+                        177,
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        1f
+                    ) as ViewGroup.MarginLayoutParams
+                    itemLinearLayoutLayoutParams.bottomMargin = 24
+                    itemLinearLayout.layoutParams = itemLinearLayoutLayoutParams
+                    itemLinearLayout.orientation = LinearLayout.VERTICAL
+                    rowLinearLayout.addView(itemLinearLayout)
 
                     val cardView = CardView(requireContext())
-                    cardView.layoutParams =
-                        LinearLayout.LayoutParams(
-                            177,
-                            LinearLayout.LayoutParams.WRAP_CONTENT,
-                            1f
-                        )
+                    val cardViewLayoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    ) as ViewGroup.MarginLayoutParams
+                    cardViewLayoutParams.bottomMargin = 12
+                    cardView.layoutParams = cardViewLayoutParams
                     cardView.radius = 36f
-                    linearLayout.addView(cardView)
+                    itemLinearLayout.addView(cardView)
 
                     val imageView = ImageView(requireContext())
                     imageView.setImageResource(
@@ -69,15 +81,24 @@ class ListFragment : Fragment(R.layout.fragment_list) {
                     imageView.scaleType = ImageView.ScaleType.CENTER_CROP
                     cardView.addView(imageView)
 
+                    val nameTextView = TextView(requireContext())
+                    nameTextView.text = track.name
+                    nameTextView.textSize = 18f
+                    nameTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.name_text))
+                    itemLinearLayout.addView(nameTextView)
+
+                    val infoTextView = TextView(requireContext())
+                    infoTextView.text = getString(R.string.list_info, track.minutes)
+                    infoTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.info_text))
+                    itemLinearLayout.addView(infoTextView)
+
                     if (leftCard) {
                         val space = Space(requireContext())
                         space.layoutParams = LinearLayout.LayoutParams(
-                            32, LinearLayout.LayoutParams.MATCH_PARENT
+                            36, LinearLayout.LayoutParams.MATCH_PARENT
                         )
-                        linearLayout.addView(space)
+                        rowLinearLayout.addView(space)
                     }
-
-                    val textFieldName = TextView(requireContext())
                 }
             })
     }
