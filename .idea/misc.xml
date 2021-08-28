@@ -4,7 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/cover_night_island.xml" value="0.2703125" />
-        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/test.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/home.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/ic_menu_item_highlight.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/menu_home.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/menu_sleep.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/menu_sleep_selected.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/menubackground.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/test.xml" value="0.264" />
         <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_1.xml" value="0.2703125" />
         <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_2.xml" value="0.2703125" />
         <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_3.xml" value="0.2703125" />
@@ -13,9 +19,12 @@
         <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_6.xml" value="0.2703125" />
         <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_7.xml" value="0.2703125" />
         <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/drawable/track_8.xml" value="0.2703125" />
-        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/layout/activity_list.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/layout/activity_list.xml" value="0.264" />
         <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/layout/fragment_list.xml" value="0.33692722371967654" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/layout/menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dmitry/AndroidStudioProjects/sleep/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
       </map>
     </option>
   </component>

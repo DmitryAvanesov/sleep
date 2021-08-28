@@ -1,6 +1,5 @@
 package com.example.sleep.list
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -84,12 +83,12 @@ class ListFragment : Fragment(R.layout.fragment_list) {
                     val nameTextView = TextView(requireContext())
                     nameTextView.text = track.name
                     nameTextView.textSize = 18f
-                    nameTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.name_text))
+                    nameTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_pink))
                     itemLinearLayout.addView(nameTextView)
 
                     val infoTextView = TextView(requireContext())
                     infoTextView.text = getString(R.string.list_info, track.minutes)
-                    infoTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.info_text))
+                    infoTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.pink))
                     itemLinearLayout.addView(infoTextView)
 
                     if (leftCard) {
