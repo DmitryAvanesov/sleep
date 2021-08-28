@@ -1,5 +1,6 @@
 package com.example.sleep.list
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +11,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.sleep.R
+import com.example.sleep.core.CategoryViewModel
 import com.example.sleep.core.TrackViewModel
 
-class ListFragment : Fragment(R.layout.fragment_list) {
+class ListFragment : Fragment() {
     private val trackViewModel: TrackViewModel by activityViewModels()
     private lateinit var tableLayout: TableLayout
 
@@ -83,12 +85,23 @@ class ListFragment : Fragment(R.layout.fragment_list) {
                     val nameTextView = TextView(requireContext())
                     nameTextView.text = track.name
                     nameTextView.textSize = 18f
-                    nameTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_pink))
+                    nameTextView.typeface = Typeface.DEFAULT_BOLD
+                    nameTextView.setTextColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.light_pink
+                        )
+                    )
                     itemLinearLayout.addView(nameTextView)
 
                     val infoTextView = TextView(requireContext())
                     infoTextView.text = getString(R.string.list_info, track.minutes)
-                    infoTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.pink))
+                    infoTextView.setTextColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.pink
+                        )
+                    )
                     itemLinearLayout.addView(infoTextView)
 
                     if (leftCard) {

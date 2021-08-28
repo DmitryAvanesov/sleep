@@ -6,4 +6,6 @@
     <string name="menu_meditate">Meditate</string>
     <string name="menu_music">Music</string>
     <string name="menu_afsar">Afsar</string>
+    <string name="header_title">Sleep Stories</string>
+    <string name="header_info">Soothing bedtime stories to help you fall into a deep and natural sleep</string>
 </resources>
