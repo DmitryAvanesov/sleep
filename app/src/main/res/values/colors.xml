@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="background">#03174C</color>
-    <color name="name_text">#E6E7F2</color>
-    <color name="info_text">#98A1BD</color>
+    <color name="light_pink">#E6E7F2</color>
+    <color name="pink">#98A1BD</color>
+    <color name="bright_pink">#8E97FD</color>
 </resources>
