@@ -11,11 +11,15 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.sleep.R
+import com.example.sleep.core.Category
+import com.example.sleep.core.CategoryViewModel
 import com.example.sleep.core.TrackViewModel
 
 class ListFragment : Fragment() {
     private val trackViewModel: TrackViewModel by activityViewModels()
     private lateinit var tableLayout: TableLayout
+    private val categoryViewModel: CategoryViewModel by activityViewModels()
+    private lateinit var categoryName: String
 
     companion object {
         @JvmStatic
@@ -31,7 +35,7 @@ class ListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        observeTracks()
+        observeCategories()
         return inflater.inflate(R.layout.fragment_list, container, false)
     }
 
@@ -39,7 +43,15 @@ class ListFragment : Fragment() {
         tableLayout = view.findViewById(R.id.list_table_layout)
     }
 
-    private fun observeTracks() {
+    private fun observeCategories() {
+        categoryViewModel.categoryLiveData.observe(
+            viewLifecycleOwner,
+            { categories ->
+                observeTracks(categories)
+            })
+    }
+
+    private fun observeTracks(categories: List<Category>) {
         trackViewModel.trackLiveData.observe(
             viewLifecycleOwner,
             { tracks ->
@@ -108,13 +120,20 @@ class ListFragment : Fragment() {
                         itemLinearLayout.addView(nameTextView)
 
                         val infoTextView = TextView(requireContext())
-                        infoTextView.text = getString(R.string.list_info, track.minutes)
+                        infoTextView.text = getString(
+                            R.string.list_info,
+                            track.minutes,
+                            categories.find { category ->
+                                category.id != 1 && track.categories.contains(category.id)
+                            }?.name?.uppercase()
+                        )
                         infoTextView.setTextColor(
                             ContextCompat.getColor(
                                 requireContext(),
                                 R.color.pink
                             )
                         )
+                        infoTextView.textSize = 13f
                         itemLinearLayout.addView(infoTextView)
 
                         if (leftCard) {
