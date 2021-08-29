@@ -29,6 +29,12 @@
                 android:layout_height="wrap_content" />
 
             <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/premium_container"
+                android:name="com.example.sleep.list.PremiumFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/list_container"
                 android:name="com.example.sleep.list.ListFragment"
                 android:layout_width="match_parent"

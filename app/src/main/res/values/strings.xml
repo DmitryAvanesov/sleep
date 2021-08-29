@@ -8,4 +8,7 @@
     <string name="menu_afsar">Afsar</string>
     <string name="header_title">Sleep Stories</string>
     <string name="header_info">Soothing bedtime stories to help you fall into a deep and natural sleep</string>
+    <string name="premium_name">The Ocean Moon</string>
+    <string name="premium_info">Non-stop 8-hour mixes of our most popular sleep audio</string>
+    <string name="start_button_text">Start</string>
 </resources>
