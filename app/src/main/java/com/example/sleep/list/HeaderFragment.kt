@@ -65,10 +65,13 @@ class HeaderFragment : Fragment() {
                             requireContext().packageName
                         )
                     )
-                    button.setOnClickListener {
-                        val intent = Intent(activity, CategoryActivity::class.java)
-                        intent.putExtra("name", category.name)
-                        startActivity(intent)
+                    if (index > 0) {
+                        button.setOnClickListener {
+                            val intent = Intent(activity, CategoryActivity::class.java)
+                            intent.putExtra("id", category.id)
+                            intent.putExtra("name", category.name)
+                            startActivity(intent)
+                        }
                     }
                     categoryLinearLayout.addView(button)
 

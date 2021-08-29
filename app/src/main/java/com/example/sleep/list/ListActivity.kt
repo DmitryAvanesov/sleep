@@ -2,15 +2,21 @@ package com.example.sleep.list
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.add
-import androidx.fragment.app.commit
 import com.example.sleep.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ListActivity : AppCompatActivity(R.layout.activity_list) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setListFragment()
         setOnItemSelectedListener()
+    }
+
+    private fun setListFragment() {
+        val fragment = ListFragment.newInstance(0)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.list_container, fragment)
+            .commit()
     }
 
     private fun setOnItemSelectedListener() {
