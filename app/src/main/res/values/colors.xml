@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background">#03174C</color>
+    <color name="dark_blue">#03174C</color>
     <color name="light_pink">#E6E7F2</color>
     <color name="pink">#98A1BD</color>
     <color name="bright_pink">#8E97FD</color>
+    <color name="pale_pink">#586894</color>
+    <color name="light_orange">#FFE7BF</color>
+    <color name="gray">#3F414E</color>
 </resources>
