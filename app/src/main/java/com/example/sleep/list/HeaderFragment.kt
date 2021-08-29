@@ -1,16 +1,19 @@
 package com.example.sleep.list
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.HorizontalScrollView
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.sleep.R
+import com.example.sleep.category.CategoryActivity
 import com.example.sleep.core.CategoryViewModel
 
 class HeaderFragment : Fragment() {
@@ -63,6 +66,14 @@ class HeaderFragment : Fragment() {
                             requireContext().packageName
                         )
                     )
+                    if (index > 0) {
+                        button.setOnClickListener {
+                            val intent = Intent(activity, CategoryActivity::class.java)
+                            intent.putExtra("id", category.id)
+                            intent.putExtra("name", category.name)
+                            startActivity(intent)
+                        }
+                    }
                     categoryLinearLayout.addView(button)
 
                     val textView = TextView(requireContext())

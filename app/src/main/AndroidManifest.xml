@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sleep">
         <activity
+            android:name=".category.CategoryActivity"
+            android:exported="true" />
+        <activity
             android:name=".list.ListActivity"
-            android:exported="true"
-            />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

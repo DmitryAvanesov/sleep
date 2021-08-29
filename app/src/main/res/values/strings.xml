@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">sleep</string>
-    <string name="list_info">%1$d MIN &#8226;</string>
+    <string name="list_info">%1$d MIN &#8226; %2$s MUSIC</string>
     <string name="menu_home">Home</string>
     <string name="menu_sleep">Sleep</string>
     <string name="menu_meditate">Meditate</string>
@@ -11,4 +11,5 @@
     <string name="premium_name">The Ocean Moon</string>
     <string name="premium_info">Non-stop 8-hour mixes of our most popular sleep audio</string>
     <string name="start_button_text">Start</string>
+    <string name="category_title">%1$s Music</string>
 </resources>
