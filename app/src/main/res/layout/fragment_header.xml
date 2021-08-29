@@ -4,7 +4,7 @@
     android:id="@+id/fragment_header"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="32dp"
+    android:layout_marginBottom="24dp"
     android:background="@color/background">
 
     <TextView
