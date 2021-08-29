@@ -11,4 +11,5 @@
     <string name="premium_name">The Ocean Moon</string>
     <string name="premium_info">Non-stop 8-hour mixes of our most popular sleep audio</string>
     <string name="start_button_text">Start</string>
+    <string name="category_title">%1$s Music</string>
 </resources>
