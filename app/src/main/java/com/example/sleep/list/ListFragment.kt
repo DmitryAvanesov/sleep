@@ -1,5 +1,6 @@
 package com.example.sleep.list
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,9 +12,11 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.sleep.R
+import com.example.sleep.category.CategoryActivity
 import com.example.sleep.core.Category
 import com.example.sleep.core.CategoryViewModel
 import com.example.sleep.core.TrackViewModel
+import com.example.sleep.track.TrackActivity
 
 class ListFragment : Fragment() {
     private val trackViewModel: TrackViewModel by activityViewModels()
@@ -84,6 +87,12 @@ class ListFragment : Fragment() {
                         itemLinearLayoutLayoutParams.bottomMargin = 24
                         itemLinearLayout.layoutParams = itemLinearLayoutLayoutParams
                         itemLinearLayout.orientation = LinearLayout.VERTICAL
+                        itemLinearLayout.setOnClickListener {
+                            val intent = Intent(activity, TrackActivity::class.java)
+                            intent.putExtra("id", track.id)
+                            intent.putExtra("name", track.name)
+                            startActivity(intent)
+                        }
                         rowLinearLayout.addView(itemLinearLayout)
 
                         val cardView = CardView(requireContext())

@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/category_header_layout"
+                android:id="@+id/category_header_layou"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
