@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit
 
 class PlayActivity : AppCompatActivity() {
     lateinit var mediaPlayer: MediaPlayer
-    lateinit var timeCurrent: TextView
-    lateinit var timeMax: TextView
-    lateinit var seekBar: SeekBar
+    private lateinit var timeCurrent: TextView
+    private lateinit var timeMax: TextView
+    private lateinit var seekBar: SeekBar
     private lateinit var runnable: Runnable
     private val handler = Handler(Looper.getMainLooper())
 
