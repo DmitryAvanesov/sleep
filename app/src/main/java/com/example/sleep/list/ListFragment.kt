@@ -24,10 +24,10 @@ class ListFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(categoryId: Int, limit: Int) = ListFragment().apply {
+        fun newInstance(categoryId: Int, trackId: Int) = ListFragment().apply {
             arguments = Bundle().apply {
                 putInt("categoryId", categoryId)
-                putInt("limit", limit)
+                putInt("trackId", trackId)
             }
         }
     }
@@ -61,17 +61,19 @@ class ListFragment : Fragment() {
                 var tableRow = TableRow(requireContext())
 
                 val categoryId = arguments?.getInt("categoryId")
-                val limit = arguments?.getInt("limit")
+                val trackId = arguments?.getInt("trackId")
 
                 val tracksFilteredByCategory = if (categoryId != 0) tracks.filter { track ->
                     track.categories.contains(categoryId)
                 } else tracks
-                val tracksFilteredByCategoryAndLimit =
-                    if (limit != null && limit != 0) tracksFilteredByCategory.take(limit) else tracksFilteredByCategory
+                val tracksFilteredByCategoryAndTrack =
+                    if (trackId != 0) tracksFilteredByCategory.filter { track ->
+                        track.id != trackId
+                    }.take(2) else tracksFilteredByCategory
 
-                for ((index, track) in tracksFilteredByCategoryAndLimit.withIndex()) {
+                for ((index, track) in tracksFilteredByCategoryAndTrack.withIndex()) {
                     val trackCategory = categories.find { category ->
-                        category.id != 1 && track.categories.contains(category.id)
+                        category.id != 2 && track.categories.contains(category.id)
                     }
 
                     if (categoryId == 0 || track.categories.contains(categoryId)) {

@@ -13,7 +13,7 @@ class ListActivity : AppCompatActivity(R.layout.activity_list) {
     }
 
     private fun setListFragment() {
-        val fragment = ListFragment.newInstance(categoryId = 0, limit = 0)
+        val fragment = ListFragment.newInstance(categoryId = 0, trackId = 0)
         supportFragmentManager.beginTransaction()
             .replace(R.id.list_container, fragment)
             .commit()

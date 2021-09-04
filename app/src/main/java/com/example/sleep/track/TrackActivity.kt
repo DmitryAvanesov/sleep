@@ -22,7 +22,7 @@ class TrackActivity : AppCompatActivity() {
     private fun handleExtras() {
         findViewById<ImageView>(R.id.track_image).setImageResource(
             resources.getIdentifier(
-                "track_${intent.extras?.get("id")}",
+                "track_${intent.extras?.getInt("id")}",
                 "drawable",
                 packageName
             )
@@ -49,7 +49,7 @@ class TrackActivity : AppCompatActivity() {
     private fun setListFragment() {
         val fragment = ListFragment.newInstance(
             categoryId = intent.extras?.getInt("categoryId") ?: 0,
-            limit = 2
+            trackId = intent.extras?.getInt("id") ?: 0
         )
         supportFragmentManager.beginTransaction()
             .replace(R.id.track_related_list_container, fragment)
@@ -58,8 +58,7 @@ class TrackActivity : AppCompatActivity() {
 
     private fun handleBackButtonClick() {
         findViewById<ImageButton>(R.id.track_back_button).setOnClickListener {
-            val intent = Intent(this, ListActivity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 }

@@ -6,20 +6,11 @@ import androidx.lifecycle.ViewModel
 class TrackViewModel : ViewModel() {
     private val model = listOf(
         Track(
-            id = 0,
-            name = "Night Island",
-            description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
-            minutes = 45,
-            categories = listOf(1, 3),
-            favorites = (Math.random() * 10000 + 100).toInt(),
-            listening = (Math.random() * 100).toInt()
-        ),
-        Track(
             id = 1,
             name = "Sweet Sleep",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 25,
-            categories = listOf(1, 4),
+            categories = listOf(2, 5),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -28,7 +19,7 @@ class TrackViewModel : ViewModel() {
             name = "Good Night",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 28,
-            categories = listOf(1, 2),
+            categories = listOf(2, 4),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -37,7 +28,7 @@ class TrackViewModel : ViewModel() {
             name = "Moon Clouds",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 14,
-            categories = listOf(2),
+            categories = listOf(2, 5),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -46,7 +37,7 @@ class TrackViewModel : ViewModel() {
             name = "Bed Time",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 53,
-            categories = listOf(3),
+            categories = listOf(5),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -64,7 +55,7 @@ class TrackViewModel : ViewModel() {
             name = "Night Mist",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 32,
-            categories = listOf(4),
+            categories = listOf(5),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -73,7 +64,7 @@ class TrackViewModel : ViewModel() {
             name = "Early Bird",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 12,
-            categories = listOf(1, 4),
+            categories = listOf(2, 4),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -82,7 +73,7 @@ class TrackViewModel : ViewModel() {
             name = "Full Moon",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 19,
-            categories = listOf(1, 4),
+            categories = listOf(2, 4),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -91,7 +82,7 @@ class TrackViewModel : ViewModel() {
             name = "Night Island",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 45,
-            categories = listOf(1, 3),
+            categories = listOf(2, 3),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -100,7 +91,7 @@ class TrackViewModel : ViewModel() {
             name = "Sweet Sleep",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 25,
-            categories = listOf(1, 4),
+            categories = listOf(2, 4),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -109,7 +100,7 @@ class TrackViewModel : ViewModel() {
             name = "Good Night",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 28,
-            categories = listOf(1, 2),
+            categories = listOf(2, 3),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -118,7 +109,7 @@ class TrackViewModel : ViewModel() {
             name = "Moon Clouds",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 14,
-            categories = listOf(2),
+            categories = listOf(2, 5),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -145,7 +136,7 @@ class TrackViewModel : ViewModel() {
             name = "Night Mist",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 32,
-            categories = listOf(4),
+            categories = listOf(5),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -154,7 +145,7 @@ class TrackViewModel : ViewModel() {
             name = "Early Bird",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 12,
-            categories = listOf(1, 4),
+            categories = listOf(2, 4),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
@@ -163,10 +154,19 @@ class TrackViewModel : ViewModel() {
             name = "Full Moon",
             description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
             minutes = 19,
-            categories = listOf(1, 4),
+            categories = listOf(2, 4),
             favorites = (Math.random() * 10000 + 100).toInt(),
             listening = (Math.random() * 100).toInt()
         ),
+        Track(
+            id = 18,
+            name = "Night Island",
+            description = "Ease the mind into a restful night’s sleep with these deep, ambient tones.",
+            minutes = 45,
+            categories = listOf(2, 3),
+            favorites = (Math.random() * 10000 + 100).toInt(),
+            listening = (Math.random() * 100).toInt()
+        )
     )
 
     val trackLiveData = MutableLiveData(model)
