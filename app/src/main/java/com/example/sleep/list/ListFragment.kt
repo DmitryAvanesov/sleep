@@ -12,7 +12,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.sleep.R
-import com.example.sleep.category.CategoryActivity
 import com.example.sleep.core.Category
 import com.example.sleep.core.CategoryViewModel
 import com.example.sleep.core.TrackViewModel
@@ -22,7 +21,6 @@ class ListFragment : Fragment() {
     private val trackViewModel: TrackViewModel by activityViewModels()
     private lateinit var tableLayout: TableLayout
     private val categoryViewModel: CategoryViewModel by activityViewModels()
-    private lateinit var categoryName: String
 
     companion object {
         @JvmStatic
@@ -66,6 +64,10 @@ class ListFragment : Fragment() {
                 } else tracks
 
                 for ((index, track) in tracksFilteredByCategory.withIndex()) {
+                    val categoryName = categories.find { category ->
+                        category.id != 1 && track.categories.contains(category.id)
+                    }?.name?.uppercase()
+
                     if (categoryId == 0 || track.categories.contains(categoryId)) {
                         val leftCard = index % 2 == 0
 
@@ -91,6 +93,11 @@ class ListFragment : Fragment() {
                             val intent = Intent(activity, TrackActivity::class.java)
                             intent.putExtra("id", track.id)
                             intent.putExtra("name", track.name)
+                            intent.putExtra("description", track.description)
+                            intent.putExtra("minutes", track.minutes)
+                            intent.putExtra("categoryName", categoryName)
+                            intent.putExtra("favorites", track.favorites)
+                            intent.putExtra("listening", track.listening)
                             startActivity(intent)
                         }
                         rowLinearLayout.addView(itemLinearLayout)
@@ -130,11 +137,9 @@ class ListFragment : Fragment() {
 
                         val infoTextView = TextView(requireContext())
                         infoTextView.text = getString(
-                            R.string.list_info,
+                            R.string.track_info,
                             track.minutes,
-                            categories.find { category ->
-                                category.id != 1 && track.categories.contains(category.id)
-                            }?.name?.uppercase()
+                            categoryName
                         )
                         infoTextView.setTextColor(
                             ContextCompat.getColor(

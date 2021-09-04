@@ -36,7 +36,7 @@ class ListActivity : AppCompatActivity(R.layout.activity_list) {
                 R.id.menu_music -> {
                     true
                 }
-                R.id.menu_afsar -> {
+                R.id.menu_author -> {
                     true
                 }
                 else -> super.onOptionsItemSelected(it)
