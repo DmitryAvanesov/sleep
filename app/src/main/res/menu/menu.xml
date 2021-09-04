@@ -17,7 +17,7 @@
         android:icon="@drawable/menu_music"
         android:title="@string/menu_music" />
     <item
-        android:id="@+id/menu_afsar"
-        android:icon="@drawable/menu_afsar"
-        android:title="@string/menu_afsar" />
+        android:id="@+id/menu_author"
+        android:icon="@drawable/menu_author"
+        android:title="@string/menu_author" />
 </menu>

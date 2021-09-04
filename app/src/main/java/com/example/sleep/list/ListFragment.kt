@@ -1,5 +1,6 @@
 package com.example.sleep.list
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,18 +15,19 @@ import com.example.sleep.R
 import com.example.sleep.core.Category
 import com.example.sleep.core.CategoryViewModel
 import com.example.sleep.core.TrackViewModel
+import com.example.sleep.track.TrackActivity
 
 class ListFragment : Fragment() {
     private val trackViewModel: TrackViewModel by activityViewModels()
     private lateinit var tableLayout: TableLayout
     private val categoryViewModel: CategoryViewModel by activityViewModels()
-    private lateinit var categoryName: String
 
     companion object {
         @JvmStatic
-        fun newInstance(categoryId: Int) = ListFragment().apply {
+        fun newInstance(categoryId: Int, trackId: Int) = ListFragment().apply {
             arguments = Bundle().apply {
                 putInt("categoryId", categoryId)
+                putInt("trackId", trackId)
             }
         }
     }
@@ -57,12 +59,23 @@ class ListFragment : Fragment() {
             { tracks ->
                 tableLayout.removeAllViews()
                 var tableRow = TableRow(requireContext())
+
                 val categoryId = arguments?.getInt("categoryId")
+                val trackId = arguments?.getInt("trackId")
+
                 val tracksFilteredByCategory = if (categoryId != 0) tracks.filter { track ->
                     track.categories.contains(categoryId)
                 } else tracks
+                val tracksFilteredByCategoryAndTrack =
+                    if (trackId != 0) tracksFilteredByCategory.filter { track ->
+                        track.id != trackId
+                    }.take(2) else tracksFilteredByCategory
 
-                for ((index, track) in tracksFilteredByCategory.withIndex()) {
+                for ((index, track) in tracksFilteredByCategoryAndTrack.withIndex()) {
+                    val trackCategory = categories.find { category ->
+                        category.id != 2 && track.categories.contains(category.id)
+                    }
+
                     if (categoryId == 0 || track.categories.contains(categoryId)) {
                         val leftCard = index % 2 == 0
 
@@ -84,6 +97,18 @@ class ListFragment : Fragment() {
                         itemLinearLayoutLayoutParams.bottomMargin = 24
                         itemLinearLayout.layoutParams = itemLinearLayoutLayoutParams
                         itemLinearLayout.orientation = LinearLayout.VERTICAL
+                        itemLinearLayout.setOnClickListener {
+                            val intent = Intent(activity, TrackActivity::class.java)
+                            intent.putExtra("id", track.id)
+                            intent.putExtra("name", track.name)
+                            intent.putExtra("description", track.description)
+                            intent.putExtra("minutes", track.minutes)
+                            intent.putExtra("categoryName", trackCategory?.name?.uppercase())
+                            intent.putExtra("favorites", track.favorites)
+                            intent.putExtra("listening", track.listening)
+                            intent.putExtra("categoryId", trackCategory?.id)
+                            startActivity(intent)
+                        }
                         rowLinearLayout.addView(itemLinearLayout)
 
                         val cardView = CardView(requireContext())
@@ -121,11 +146,9 @@ class ListFragment : Fragment() {
 
                         val infoTextView = TextView(requireContext())
                         infoTextView.text = getString(
-                            R.string.list_info,
+                            R.string.track_info,
                             track.minutes,
-                            categories.find { category ->
-                                category.id != 1 && track.categories.contains(category.id)
-                            }?.name?.uppercase()
+                            trackCategory?.name?.uppercase()
                         )
                         infoTextView.setTextColor(
                             ContextCompat.getColor(

@@ -15,8 +15,8 @@ class CategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
         handleExtras()
-        handleBackButtonClick()
         setListFragment()
+        handleBackButtonClick()
     }
 
     private fun handleExtras() {
@@ -26,17 +26,22 @@ class CategoryActivity : AppCompatActivity() {
         )
     }
 
-    private fun handleBackButtonClick() {
-        findViewById<ImageButton>(R.id.category_back_button).setOnClickListener {
-            val intent = Intent(this, ListActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
     private fun setListFragment() {
-        val fragment = intent.extras?.let { ListFragment.newInstance(it.getInt("id")) } as Fragment
+        val fragment =
+            intent.extras?.let {
+                ListFragment.newInstance(
+                    categoryId = it.getInt("id"),
+                    trackId = 0
+                )
+            } as Fragment
         supportFragmentManager.beginTransaction()
             .replace(R.id.category_list_container, fragment)
             .commit()
+    }
+
+    private fun handleBackButtonClick() {
+        findViewById<ImageButton>(R.id.category_back_button).setOnClickListener {
+            finish()
+        }
     }
 }

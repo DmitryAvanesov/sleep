@@ -13,7 +13,7 @@ class ListActivity : AppCompatActivity(R.layout.activity_list) {
     }
 
     private fun setListFragment() {
-        val fragment = ListFragment.newInstance(0)
+        val fragment = ListFragment.newInstance(categoryId = 0, trackId = 0)
         supportFragmentManager.beginTransaction()
             .replace(R.id.list_container, fragment)
             .commit()
@@ -36,7 +36,7 @@ class ListActivity : AppCompatActivity(R.layout.activity_list) {
                 R.id.menu_music -> {
                     true
                 }
-                R.id.menu_afsar -> {
+                R.id.menu_author -> {
                     true
                 }
                 else -> super.onOptionsItemSelected(it)

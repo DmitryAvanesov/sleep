@@ -1,36 +1,15 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="26dp"
+    android:width="29dp"
     android:height="26dp"
-    android:viewportWidth="26"
+    android:viewportWidth="29"
     android:viewportHeight="26">
   <group>
     <clip-path
-        android:pathData="M0.8457,0.0188h25v25h-25z"/>
+        android:pathData="M0.5957,0.0188h28v25h-28z"/>
     <path
-        android:pathData="M13.3457,23.8824C19.6217,23.8824 24.7093,18.7948 24.7093,12.5188C24.7093,6.2428 19.6217,1.1552 13.3457,1.1552C7.0697,1.1552 1.9821,6.2428 1.9821,12.5188C1.9821,18.7948 7.0697,23.8824 13.3457,23.8824Z"
+        android:pathData="M25.4045,3.3753C22.7756,0.6104 18.5206,0.6104 15.8918,3.3753L15.6839,3.594C15.0848,4.2241 14.1066,4.2241 13.4953,3.594C11.2088,1.1762 7.5407,0.559 4.8385,2.4623C1.1948,5.0471 0.8403,10.2812 3.787,13.3805L5.0831,14.7436L12.9328,22.9998C13.8499,23.9643 15.3293,23.9643 16.2464,22.9998L24.0962,14.7436L25.3922,13.3805C28.0333,10.6156 28.0333,6.1402 25.4045,3.3753Z"
         android:strokeLineJoin="round"
         android:strokeWidth="2"
-        android:fillColor="#00000000"
-        android:strokeColor="#E6E7F2"
-        android:strokeLineCap="round"/>
-    <path
-        android:pathData="M17.8912,17.0642C17.8912,17.0642 16.1867,14.7915 13.3457,14.7915C10.5048,14.7915 8.8003,17.0642 8.8003,17.0642"
-        android:strokeLineJoin="round"
-        android:strokeWidth="2"
-        android:fillColor="#00000000"
-        android:strokeColor="#E6E7F2"
-        android:strokeLineCap="round"/>
-    <path
-        android:pathData="M9.9367,9.1097H9.948"
-        android:strokeLineJoin="round"
-        android:strokeWidth="3"
-        android:fillColor="#00000000"
-        android:strokeColor="#E6E7F2"
-        android:strokeLineCap="round"/>
-    <path
-        android:pathData="M16.7548,9.1097H16.7661"
-        android:strokeLineJoin="round"
-        android:strokeWidth="3"
         android:fillColor="#00000000"
         android:strokeColor="#E6E7F2"
         android:strokeLineCap="round"/>
