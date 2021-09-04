@@ -24,9 +24,10 @@ class ListFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(categoryId: Int) = ListFragment().apply {
+        fun newInstance(categoryId: Int, limit: Int) = ListFragment().apply {
             arguments = Bundle().apply {
                 putInt("categoryId", categoryId)
+                putInt("limit", limit)
             }
         }
     }
@@ -58,15 +59,20 @@ class ListFragment : Fragment() {
             { tracks ->
                 tableLayout.removeAllViews()
                 var tableRow = TableRow(requireContext())
+
                 val categoryId = arguments?.getInt("categoryId")
+                val limit = arguments?.getInt("limit")
+
                 val tracksFilteredByCategory = if (categoryId != 0) tracks.filter { track ->
                     track.categories.contains(categoryId)
                 } else tracks
+                val tracksFilteredByCategoryAndLimit =
+                    if (limit != null && limit != 0) tracksFilteredByCategory.take(limit) else tracksFilteredByCategory
 
-                for ((index, track) in tracksFilteredByCategory.withIndex()) {
-                    val categoryName = categories.find { category ->
+                for ((index, track) in tracksFilteredByCategoryAndLimit.withIndex()) {
+                    val trackCategory = categories.find { category ->
                         category.id != 1 && track.categories.contains(category.id)
-                    }?.name?.uppercase()
+                    }
 
                     if (categoryId == 0 || track.categories.contains(categoryId)) {
                         val leftCard = index % 2 == 0
@@ -95,9 +101,10 @@ class ListFragment : Fragment() {
                             intent.putExtra("name", track.name)
                             intent.putExtra("description", track.description)
                             intent.putExtra("minutes", track.minutes)
-                            intent.putExtra("categoryName", categoryName)
+                            intent.putExtra("categoryName", trackCategory?.name?.uppercase())
                             intent.putExtra("favorites", track.favorites)
                             intent.putExtra("listening", track.listening)
+                            intent.putExtra("categoryId", trackCategory?.id)
                             startActivity(intent)
                         }
                         rowLinearLayout.addView(itemLinearLayout)
@@ -139,7 +146,7 @@ class ListFragment : Fragment() {
                         infoTextView.text = getString(
                             R.string.track_info,
                             track.minutes,
-                            categoryName
+                            trackCategory?.name?.uppercase()
                         )
                         infoTextView.setTextColor(
                             ContextCompat.getColor(

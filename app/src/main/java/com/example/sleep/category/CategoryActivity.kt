@@ -34,7 +34,13 @@ class CategoryActivity : AppCompatActivity() {
     }
 
     private fun setListFragment() {
-        val fragment = intent.extras?.let { ListFragment.newInstance(it.getInt("id")) } as Fragment
+        val fragment =
+            intent.extras?.let {
+                ListFragment.newInstance(
+                    categoryId = it.getInt("id"),
+                    limit = 0
+                )
+            } as Fragment
         supportFragmentManager.beginTransaction()
             .replace(R.id.category_list_container, fragment)
             .commit()

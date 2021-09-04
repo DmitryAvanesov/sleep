@@ -14,4 +14,6 @@
     <string name="category_title">%1$s Music</string>
     <string name="track_favorites">%1$d Favorites</string>
     <string name="track_listening">%1$d Listening</string>
+    <string name="track_related">Related</string>
+    <string name="track_play">PLAY</string>
 </resources>
