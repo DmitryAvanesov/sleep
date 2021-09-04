@@ -130,6 +130,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
+        android:progressTint="@color/light_pink"
+        android:thumbTint="@color/bright_pink"
         app:layout_constraintEnd_toStartOf="@+id/play_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/play_controls_layout" />
