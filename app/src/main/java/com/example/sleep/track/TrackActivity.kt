@@ -10,8 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.sleep.R
 import com.example.sleep.list.ListFragment
 import com.example.sleep.play.PlayActivity
+import kotlin.properties.Delegates
 
 class TrackActivity : AppCompatActivity() {
+    var id by Delegates.notNull<Int>()
     lateinit var name: String
     lateinit var categoryName: String
 
@@ -25,12 +27,13 @@ class TrackActivity : AppCompatActivity() {
     }
 
     private fun handleExtras() {
+        id = intent.extras?.getInt("id") ?: 0
         name = intent.extras?.getString("name") ?: ""
         categoryName = intent.extras?.getString("categoryName") ?: ""
 
         findViewById<ImageView>(R.id.track_image).setImageResource(
             resources.getIdentifier(
-                "track_${intent.extras?.getInt("id")}",
+                "track_${id}",
                 "drawable",
                 packageName
             )
@@ -61,7 +64,7 @@ class TrackActivity : AppCompatActivity() {
     private fun setListFragment() {
         val fragment = ListFragment.newInstance(
             categoryId = intent.extras?.getInt("categoryId") ?: 0,
-            trackId = intent.extras?.getInt("id") ?: 0
+            trackId = id ?: 0
         )
         supportFragmentManager.beginTransaction()
             .replace(R.id.track_related_list_container, fragment)
@@ -77,6 +80,7 @@ class TrackActivity : AppCompatActivity() {
     private fun handlePlayButtonClick() {
         findViewById<Button>(R.id.track_play_button).setOnClickListener {
             val intent = Intent(this, PlayActivity::class.java)
+            intent.putExtra("id", id)
             intent.putExtra("name", name)
             intent.putExtra("categoryName", categoryName)
             startActivity(intent)

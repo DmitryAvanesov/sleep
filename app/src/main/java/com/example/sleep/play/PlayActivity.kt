@@ -1,5 +1,6 @@
 package com.example.sleep.play
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
@@ -11,6 +12,7 @@ class PlayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play)
         handleExtras()
+        setUpMediaPlayer()
         handleCloseButtonClick()
     }
 
@@ -20,6 +22,20 @@ class PlayActivity : AppCompatActivity() {
             R.string.play_category,
             intent.extras?.getString("categoryName")
         )
+    }
+
+    private fun setUpMediaPlayer() {
+        val mediaPlayer = MediaPlayer.create(this, resources.getIdentifier(
+            "track_${intent.extras?.getInt("id")}",
+            "raw",
+            packageName
+        ))
+
+        findViewById<ImageButton>(R.id.play_button).setOnClickListener {
+            if (!mediaPlayer.isPlaying) {
+                mediaPlayer.start()
+            }
+        }
     }
 
     private fun handleCloseButtonClick() {
