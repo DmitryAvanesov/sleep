@@ -2,24 +2,32 @@ package com.example.sleep.track
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sleep.R
-import com.example.sleep.list.ListActivity
 import com.example.sleep.list.ListFragment
+import com.example.sleep.play.PlayActivity
 
 class TrackActivity : AppCompatActivity() {
+    lateinit var name: String
+    lateinit var categoryName: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_track)
         handleExtras()
         setListFragment()
         handleBackButtonClick()
+        handlePlayButtonClick()
     }
 
     private fun handleExtras() {
+        name = intent.extras?.getString("name") ?: ""
+        categoryName = intent.extras?.getString("categoryName") ?: ""
+
         findViewById<ImageView>(R.id.track_image).setImageResource(
             resources.getIdentifier(
                 "track_${intent.extras?.getInt("id")}",
@@ -28,18 +36,22 @@ class TrackActivity : AppCompatActivity() {
             )
         )
 
-        findViewById<TextView>(R.id.track_name).text = intent.extras?.getCharSequence("name")
+        findViewById<TextView>(R.id.track_name).text = name
+
         findViewById<TextView>(R.id.track_info).text = getString(
             R.string.track_info,
             intent.extras?.getInt("minutes"),
-            intent.extras?.get("categoryName")
+            categoryName
         )
+
         findViewById<TextView>(R.id.track_description).text =
-            intent.extras?.getCharSequence("description")
+            intent.extras?.getString("description")
+
         findViewById<TextView>(R.id.track_favorites_label).text = getString(
             R.string.track_favorites,
             intent.extras?.getInt("favorites"),
         )
+
         findViewById<TextView>(R.id.track_listening_label).text = getString(
             R.string.track_listening,
             intent.extras?.getInt("listening"),
@@ -59,6 +71,15 @@ class TrackActivity : AppCompatActivity() {
     private fun handleBackButtonClick() {
         findViewById<ImageButton>(R.id.track_back_button).setOnClickListener {
             finish()
+        }
+    }
+
+    private fun handlePlayButtonClick() {
+        findViewById<Button>(R.id.track_play_button).setOnClickListener {
+            val intent = Intent(this, PlayActivity::class.java)
+            intent.putExtra("name", name)
+            intent.putExtra("categoryName", categoryName)
+            startActivity(intent)
         }
     }
 }
