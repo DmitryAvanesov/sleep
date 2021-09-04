@@ -17,4 +17,5 @@
     <string name="track_related">Related</string>
     <string name="track_play">PLAY</string>
     <string name="play_category">%1$s MUSIC</string>
+    <string name="play_time">%02d:%02d</string>
 </resources>

@@ -9,10 +9,14 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sleep.R
+import java.util.concurrent.TimeUnit
 
 class PlayActivity : AppCompatActivity() {
     lateinit var mediaPlayer: MediaPlayer
-    lateinit var runnable: Runnable
+    lateinit var timeCurrent: TextView
+    lateinit var timeMax: TextView
+    lateinit var seekBar: SeekBar
+    private lateinit var runnable: Runnable
     private val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +45,7 @@ class PlayActivity : AppCompatActivity() {
         )
 
         val playButton = findViewById<ImageButton>(R.id.play_button)
-        val seekBar = findViewById<SeekBar>(R.id.play_seek_bar)
+        seekBar = findViewById(R.id.play_seek_bar)
 
         playButton.setOnClickListener {
             if (!mediaPlayer.isPlaying) {
@@ -60,6 +64,7 @@ class PlayActivity : AppCompatActivity() {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser) {
                     mediaPlayer.seekTo(progress)
+                    updateTime()
                 }
             }
 
@@ -67,11 +72,16 @@ class PlayActivity : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
+        timeCurrent = findViewById(R.id.play_time_current)
+        timeMax = findViewById(R.id.play_time_max)
+        setCurrentTime()
+        setMaxTime()
+
         val delayMillis = 1000.toLong()
 
         runnable = Runnable {
             if (mediaPlayer.isPlaying) {
-                seekBar.progress = mediaPlayer.currentPosition
+                updateTime()
             }
             handler.postDelayed(runnable, delayMillis)
         }
@@ -80,19 +90,47 @@ class PlayActivity : AppCompatActivity() {
 
         mediaPlayer.setOnCompletionListener {
             playButton.setImageResource(R.drawable.ic_play)
-            seekBar.progress = 0
+            mediaPlayer.seekTo(0)
+            updateTime()
         }
 
         val mSecStep = 15000
 
         findViewById<ImageButton>(R.id.play_back_button).setOnClickListener {
             mediaPlayer.seekTo(mediaPlayer.currentPosition - mSecStep)
-            seekBar.progress = mediaPlayer.currentPosition
+            updateTime()
         }
         findViewById<ImageButton>(R.id.play_forward_button).setOnClickListener {
             mediaPlayer.seekTo(mediaPlayer.currentPosition + mSecStep)
-            seekBar.progress = mediaPlayer.currentPosition
+            updateTime()
         }
+    }
+
+    private fun setCurrentTime() {
+        val currentPosition = mediaPlayer.currentPosition.toLong()
+
+        timeCurrent.text = getString(
+            R.string.play_time,
+            TimeUnit.MILLISECONDS.toMinutes(currentPosition),
+            TimeUnit.MILLISECONDS.toSeconds(currentPosition) -
+                    TimeUnit.MILLISECONDS.toMinutes(currentPosition) * 60,
+        )
+    }
+
+    private fun setMaxTime() {
+        val duration = mediaPlayer.duration.toLong()
+
+        timeMax.text = getString(
+            R.string.play_time,
+            TimeUnit.MILLISECONDS.toMinutes(duration),
+            TimeUnit.MILLISECONDS.toSeconds(duration) -
+                    TimeUnit.MILLISECONDS.toMinutes(duration) * 60,
+        )
+    }
+
+    private fun updateTime() {
+        seekBar.progress = mediaPlayer.currentPosition
+        setCurrentTime()
     }
 
     private fun handleCloseButtonClick() {
