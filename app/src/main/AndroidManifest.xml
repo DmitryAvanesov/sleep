@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sleep">
         <activity
+            android:name=".play.PlayActivity"
+            android:exported="true" />
+        <activity
             android:name=".track.TrackActivity"
             android:exported="true" />
         <activity
