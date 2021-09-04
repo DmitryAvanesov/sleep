@@ -21,6 +21,8 @@ class ListActivity : AppCompatActivity(R.layout.activity_list) {
 
     private fun setOnItemSelectedListener() {
         val menu = findViewById<BottomNavigationView>(R.id.menu)
+        menu.itemIconTintList = null
+        menu.selectedItemId = R.id.menu_sleep
 
         menu.setOnItemSelectedListener {
             when (it.itemId) {
