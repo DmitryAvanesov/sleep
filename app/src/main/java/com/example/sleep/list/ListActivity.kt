@@ -27,19 +27,23 @@ class ListActivity : AppCompatActivity(R.layout.activity_list) {
         menu.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_home -> {
-                    true
+                    false
                 }
                 R.id.menu_sleep -> {
                     true
                 }
                 R.id.menu_meditate -> {
-                    true
+                    false
                 }
                 R.id.menu_music -> {
-                    true
+                    false
                 }
                 R.id.menu_author -> {
+<<<<<<< HEAD
                     true
+=======
+                    false
+>>>>>>> ea63680 (Restricted bottom menu transitions)
                 }
                 else -> super.onOptionsItemSelected(it)
             }
