@@ -1,21 +1,25 @@
-package com.example.sleep.list
+package com.example.sleep.menu
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.example.sleep.R
+import com.example.sleep.sleep.ListFragment
+import com.example.sleep.sleep.SleepFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class ListActivity : AppCompatActivity(R.layout.activity_list) {
+class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setListFragment()
+        setContentView(R.layout.activity_menu)
+        setSleepFragment()
         setOnItemSelectedListener()
     }
 
-    private fun setListFragment() {
-        val fragment = ListFragment.newInstance(categoryId = 0, trackId = 0)
+    private fun setSleepFragment() {
+        val fragment = SleepFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.list_container, fragment)
+            .replace(R.id.menu_fragment_container, fragment)
             .commit()
     }
 
@@ -39,11 +43,7 @@ class ListActivity : AppCompatActivity(R.layout.activity_list) {
                     false
                 }
                 R.id.menu_author -> {
-<<<<<<< HEAD
-                    true
-=======
                     false
->>>>>>> ea63680 (Restricted bottom menu transitions)
                 }
                 else -> super.onOptionsItemSelected(it)
             }

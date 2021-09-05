@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sleep">
         <activity
+            android:name=".menu.MenuActivity"
+            android:exported="true" />
+        <activity
             android:name=".play.PlayActivity"
             android:exported="true" />
         <activity
@@ -17,9 +20,6 @@
             android:exported="true" />
         <activity
             android:name=".category.CategoryActivity"
-            android:exported="true" />
-        <activity
-            android:name=".list.ListActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

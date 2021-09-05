@@ -1,14 +1,12 @@
 package com.example.sleep.category
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.sleep.R
-import com.example.sleep.list.ListActivity
-import com.example.sleep.list.ListFragment
+import com.example.sleep.sleep.ListFragment
 
 class CategoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
