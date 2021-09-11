@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sleep.R
-import com.example.sleep.sleep.ListFragment
+import com.example.sleep.core.ListFragment
 import com.example.sleep.play.PlayActivity
 import kotlin.properties.Delegates
 

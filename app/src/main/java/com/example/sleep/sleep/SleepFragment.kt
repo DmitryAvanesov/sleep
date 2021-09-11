@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.sleep.R
+import com.example.sleep.core.ListFragment
 
 class SleepFragment : Fragment() {
     override fun onCreateView(
@@ -19,7 +20,7 @@ class SleepFragment : Fragment() {
 
     private fun setListFragment() {
         val fragment = ListFragment.newInstance(categoryId = 0, trackId = 0)
-       parentFragmentManager.beginTransaction()
+       childFragmentManager.beginTransaction()
             .replace(R.id.list_container, fragment)
             .commit()
     }

@@ -8,7 +8,8 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.sleep.R
-import com.example.sleep.sleep.ListFragment
+import com.example.sleep.core.ListFragment
+import com.example.sleep.sleep.SleepFragment
 
 class CategoryFragment: Fragment() {
     lateinit var categoryTitle: TextView
@@ -16,7 +17,7 @@ class CategoryFragment: Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(id: Int, name: String) = ListFragment().apply {
+        fun newInstance(id: Int, name: String) = CategoryFragment().apply {
             arguments = Bundle().apply {
                 putInt("id", id)
                 putString("name", name)
@@ -29,15 +30,15 @@ class CategoryFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        handleExtras()
         setListFragment()
-        handleBackButtonClick()
         return inflater.inflate(R.layout.fragment_category, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         categoryTitle = view.findViewById(R.id.category_title)
         categoryBackButton = view.findViewById(R.id.category_back_button)
+        handleExtras()
+        handleBackButtonClick()
     }
 
     private fun handleExtras() {
@@ -55,14 +56,16 @@ class CategoryFragment: Fragment() {
             )
         } as Fragment
 
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.category_list_container, fragment)
-            .commit()
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.category_list_container, fragment)
+            ?.commit()
     }
 
     private fun handleBackButtonClick() {
         categoryBackButton.setOnClickListener {
-
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.menu_fragment_container, SleepFragment())
+                ?.commit()
         }
     }
 }

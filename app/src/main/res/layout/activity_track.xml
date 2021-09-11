@@ -200,7 +200,7 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/track_related_list_container"
-                android:name="com.example.sleep.sleep.ListFragment"
+                android:name="com.example.sleep.core.ListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>

@@ -1,6 +1,5 @@
 package com.example.sleep.sleep
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.sleep.R
-import com.example.sleep.category.CategoryActivity
 import com.example.sleep.category.CategoryFragment
 import com.example.sleep.core.CategoryViewModel
 
@@ -69,17 +67,13 @@ class HeaderFragment : Fragment() {
                     )
                     if (index > 0) {
                         button.setOnClickListener {
-//                            val intent = Intent(activity, CategoryActivity::class.java)
-//                            intent.putExtra("id", category.id)
-//                            intent.putExtra("name", category.name)
-//                            startActivity(intent)
                             val fragment = CategoryFragment.newInstance(
                                 id = category.id,
                                 name = category.name
                             )
-                            parentFragmentManager.beginTransaction()
-                                .replace(R.id.menu_fragment_container, fragment)
-                                .commit()
+                            activity?.supportFragmentManager?.beginTransaction()
+                                ?.replace(R.id.menu_fragment_container, fragment)
+                                ?.commit()
                         }
                     }
                     categoryLinearLayout.addView(button)
