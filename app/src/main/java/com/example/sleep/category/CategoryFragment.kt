@@ -35,6 +35,7 @@ class CategoryFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         categoryTitle = view.findViewById(R.id.category_title)
         categoryBackButton = view.findViewById(R.id.category_back_button)
         handleExtras()

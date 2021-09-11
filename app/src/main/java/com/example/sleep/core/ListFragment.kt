@@ -34,12 +34,13 @@ class ListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        observeCategories()
         return inflater.inflate(R.layout.fragment_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         tableLayout = view.findViewById(R.id.list_table_layout)
+        observeCategories()
     }
 
     private fun observeCategories() {
