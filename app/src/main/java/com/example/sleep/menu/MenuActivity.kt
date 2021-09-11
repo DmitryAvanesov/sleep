@@ -1,43 +1,47 @@
-package com.example.sleep.list
+package com.example.sleep.menu
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import com.example.sleep.R
+import com.example.sleep.sleep.SleepFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class ListActivity : AppCompatActivity(R.layout.activity_list) {
+class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setListFragment()
+        setContentView(R.layout.activity_menu)
+        setSleepFragment()
         setOnItemSelectedListener()
     }
 
-    private fun setListFragment() {
-        val fragment = ListFragment.newInstance(categoryId = 0, trackId = 0)
+    private fun setSleepFragment() {
+        val fragment = SleepFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.list_container, fragment)
+            .replace(R.id.menu_fragment_container, fragment)
             .commit()
     }
 
     private fun setOnItemSelectedListener() {
         val menu = findViewById<BottomNavigationView>(R.id.menu)
+        menu.itemIconTintList = null
+        menu.selectedItemId = R.id.menu_sleep
 
         menu.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_home -> {
-                    true
+                    false
                 }
                 R.id.menu_sleep -> {
                     true
                 }
                 R.id.menu_meditate -> {
-                    true
+                    false
                 }
                 R.id.menu_music -> {
-                    true
+                    false
                 }
                 R.id.menu_author -> {
-                    true
+                    false
                 }
                 else -> super.onOptionsItemSelected(it)
             }
