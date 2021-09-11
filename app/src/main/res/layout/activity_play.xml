@@ -47,7 +47,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/play_actions_container"
-            android:name="com.example.sleep.core.ActionsFragment"
+            android:name="com.example.sleep.core.fragments.ActionsFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

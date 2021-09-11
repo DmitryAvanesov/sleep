@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.sleep.R
 import com.example.sleep.category.CategoryFragment
-import com.example.sleep.core.CategoryViewModel
+import com.example.sleep.core.view_models.CategoryViewModel
 
 class HeaderFragment : Fragment() {
     private val categoryViewModel: CategoryViewModel by activityViewModels()

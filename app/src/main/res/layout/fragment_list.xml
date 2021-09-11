@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    tools:context=".core.ListFragment">
+    tools:context=".core.fragments.ListFragment">
 
     <TableLayout
         android:id="@+id/list_table_layout"

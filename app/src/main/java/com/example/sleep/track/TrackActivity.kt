@@ -8,7 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sleep.R
-import com.example.sleep.core.ListFragment
+import com.example.sleep.core.fragments.ActionsFragment
+import com.example.sleep.core.fragments.ListFragment
 import com.example.sleep.play.PlayActivity
 import kotlin.properties.Delegates
 
@@ -22,6 +23,7 @@ class TrackActivity : AppCompatActivity() {
         setContentView(R.layout.activity_track)
         handleExtras()
         setListFragment()
+        setActionsFragment()
         handleBackButtonClick()
         handlePlayButtonClick()
     }
@@ -61,10 +63,19 @@ class TrackActivity : AppCompatActivity() {
         )
     }
 
+    private fun setActionsFragment() {
+        val fragment = ActionsFragment.newInstance(
+            my = intent.extras?.getBoolean("my") == true
+        )
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.track_actions_container, fragment)
+            .commit()
+    }
+
     private fun setListFragment() {
         val fragment = ListFragment.newInstance(
             categoryId = intent.extras?.getInt("categoryId") ?: 0,
-            trackId = id ?: 0
+            trackId = id
         )
         supportFragmentManager.beginTransaction()
             .replace(R.id.track_related_list_container, fragment)

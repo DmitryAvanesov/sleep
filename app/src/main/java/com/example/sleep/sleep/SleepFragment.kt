@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.sleep.R
-import com.example.sleep.core.ListFragment
+import com.example.sleep.core.fragments.ListFragment
 
 class SleepFragment : Fragment() {
     override fun onCreateView(

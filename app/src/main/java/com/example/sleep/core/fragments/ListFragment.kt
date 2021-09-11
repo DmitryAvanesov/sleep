@@ -1,4 +1,4 @@
-package com.example.sleep.core
+package com.example.sleep.core.fragments
 
 import android.content.Intent
 import android.graphics.Typeface
@@ -12,6 +12,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.sleep.R
+import com.example.sleep.core.models.Category
+import com.example.sleep.core.view_models.CategoryViewModel
+import com.example.sleep.core.view_models.TrackViewModel
 import com.example.sleep.track.TrackActivity
 
 class ListFragment : Fragment() {
@@ -105,6 +108,7 @@ class ListFragment : Fragment() {
                             intent.putExtra("favorites", track.favorites)
                             intent.putExtra("listening", track.listening)
                             intent.putExtra("categoryId", trackCategory?.id)
+                            intent.putExtra("my", track.categories.contains(2))
                             startActivity(intent)
                         }
                         rowLinearLayout.addView(itemLinearLayout)
