@@ -52,7 +52,7 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/category_list_container"
-                android:name="com.example.sleep.core.ListFragment"
+                android:name="com.example.sleep.core.fragments.ListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

@@ -8,7 +8,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.sleep.R
-import com.example.sleep.core.ListFragment
+import com.example.sleep.core.fragments.ListFragment
 import com.example.sleep.sleep.SleepFragment
 
 class CategoryFragment: Fragment() {
@@ -35,6 +35,7 @@ class CategoryFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         categoryTitle = view.findViewById(R.id.category_title)
         categoryBackButton = view.findViewById(R.id.category_back_button)
         handleExtras()

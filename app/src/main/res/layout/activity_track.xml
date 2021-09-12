@@ -57,20 +57,11 @@
                     android:layout_height="0dp"
                     android:layout_weight="1" />
 
-                <ImageButton
-                    android:id="@+id/track_my_button"
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/track_actions_container"
+                    android:name="com.example.sleep.core.fragments.ActionsFragment"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/ic_transparent_button_background"
-                    app:srcCompat="@drawable/ic_my" />
-
-                <ImageButton
-                    android:id="@+id/track_download_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_transparent_button_background"
-                    app:srcCompat="@drawable/ic_download" />
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
@@ -200,7 +191,7 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/track_related_list_container"
-                android:name="com.example.sleep.core.ListFragment"
+                android:name="com.example.sleep.core.fragments.ListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>

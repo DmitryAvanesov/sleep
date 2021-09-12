@@ -1,7 +1,8 @@
-package com.example.sleep.core
+package com.example.sleep.core.view_models
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.sleep.core.models.Track
 
 class TrackViewModel : ViewModel() {
     private val model = listOf(

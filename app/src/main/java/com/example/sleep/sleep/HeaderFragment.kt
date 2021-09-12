@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.sleep.R
 import com.example.sleep.category.CategoryFragment
-import com.example.sleep.core.CategoryViewModel
+import com.example.sleep.core.view_models.CategoryViewModel
 
 class HeaderFragment : Fragment() {
     private val categoryViewModel: CategoryViewModel by activityViewModels()
@@ -24,12 +24,13 @@ class HeaderFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        observeCategories()
         return inflater.inflate(R.layout.fragment_header, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         categoriesView = view.findViewById(R.id.categories_scroll_view)
+        observeCategories()
     }
 
     private fun observeCategories() {

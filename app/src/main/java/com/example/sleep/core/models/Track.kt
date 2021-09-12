@@ -1,4 +1,4 @@
-package com.example.sleep.core
+package com.example.sleep.core.models
 
 data class Track(
     val id: Int,
