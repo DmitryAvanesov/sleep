@@ -58,7 +58,7 @@ class HeaderFragment : Fragment() {
                         LinearLayout.LayoutParams(160, 160) as ViewGroup.MarginLayoutParams
                     buttonLinearLayout.bottomMargin = 12
                     button.layoutParams = buttonLinearLayout
-                    button.setBackgroundResource(if (index == 0) R.drawable.category_button_active else R.drawable.category_button)
+                    button.setBackgroundResource(if (index == 0) R.drawable.ic_category_button_active else R.drawable.ic_category_button)
                     button.setImageResource(
                         requireContext().resources.getIdentifier(
                             "ic_category_${category.id}",
