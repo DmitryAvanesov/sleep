@@ -7,20 +7,10 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.example.sleep.R
-import java.util.*
 
 class ActionsFragment : Fragment() {
     lateinit var myButton: ImageButton
     lateinit var downloadButton: ImageButton
-
-    companion object {
-        @JvmStatic
-        fun newInstance(my: Boolean) = ActionsFragment().apply {
-            arguments = Bundle().apply {
-                putBoolean("my", my)
-            }
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,12 +24,11 @@ class ActionsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         myButton = view.findViewById(R.id.actions_my_button)
         downloadButton = view.findViewById(R.id.actions_download_button)
-        handleExtras()
+        handleMyButtonClick()
+        handleDownloadButtonClick()
     }
 
-    private fun handleExtras() {
-        if (arguments?.getBoolean("my") == true) {
-            myButton.setBackgroundResource(R.drawable.ic_semi_transparent_button_background)
-        }
-    }
+    private fun handleMyButtonClick() {}
+
+    private fun handleDownloadButtonClick() {}
 }

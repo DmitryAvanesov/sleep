@@ -23,7 +23,6 @@ class TrackActivity : AppCompatActivity() {
         setContentView(R.layout.activity_track)
         handleExtras()
         setListFragment()
-        setActionsFragment()
         handleBackButtonClick()
         handlePlayButtonClick()
     }
@@ -61,15 +60,6 @@ class TrackActivity : AppCompatActivity() {
             R.string.track_listening,
             intent.extras?.getInt("listening"),
         )
-    }
-
-    private fun setActionsFragment() {
-        val fragment = ActionsFragment.newInstance(
-            my = intent.extras?.getBoolean("my") == true
-        )
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.track_actions_container, fragment)
-            .commit()
     }
 
     private fun setListFragment() {
