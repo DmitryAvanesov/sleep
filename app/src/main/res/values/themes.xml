@@ -1,8 +1,8 @@
 <resources>
-    <style name="Theme.Sleep" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Sleep" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="colorPrimary">@color/dark_blue</item>
         <item name="colorPrimaryDark">@color/dark_blue</item>
         <item name="colorAccent">@color/dark_blue</item>

@@ -18,6 +18,7 @@
     <string name="track_play">PLAY</string>
     <string name="play_category">%1$s MUSIC</string>
     <string name="play_time">%02d:%02d</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_title">Welcome to Sleep</string>
+    <string name="main_info">Explore the new king of sleep. It uses sound and visualization to create perfect conditions for refreshing sleep.</string>
+    <string name="main_button_text">GET STARTED</string>
 </resources>

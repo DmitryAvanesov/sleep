@@ -15,12 +15,6 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
         setSleepFragment()
         setOnItemSelectedListener()
-        setStatusBarColor()
-    }
-
-    private fun setStatusBarColor() {
-        window.statusBarColor = ContextCompat.getColor(this, R.color.dark_blue)
-        window.navigationBarColor = ContextCompat.getColor(this, R.color.dark_blue)
     }
 
     private fun setSleepFragment() {
