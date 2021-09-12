@@ -2,6 +2,9 @@ package com.example.sleep.menu
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
+import androidx.core.content.ContextCompat
 import com.example.sleep.R
 import com.example.sleep.sleep.SleepFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
