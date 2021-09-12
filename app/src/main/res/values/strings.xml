@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">sleep</string>
+    <string name="app_name">Sleep</string>
     <string name="track_info">%1$d MIN &#8226; %2$s MUSIC</string>
     <string name="menu_home">Home</string>
     <string name="menu_sleep">Sleep</string>
